@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class itemchar extends Model
 {
     use HasFactory;
+    protected $guarded = [];
+    public $timestamps = false;
 }
