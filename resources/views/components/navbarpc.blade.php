@@ -20,7 +20,6 @@
 <input type="checkbox" id="my-modal-7" class="modal-toggle" />
 <div class="modal modal-bottom sm:modal-middle">
   <div class="modal-box">
-  {{View::make('components/cart-comp')}}
     <h3 class="font-bold text-lg">Projekt </h3>
     <p class="py-4">Punoi : Elton Skëndaj || Ema Rama</p>
     <div class="modal-action">
