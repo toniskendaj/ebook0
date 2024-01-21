@@ -19,7 +19,7 @@
                <p class="text-xl font-light">Returnable : {{ucfirst($i->returnable)}}</p>
                <p class="text-xl font-light">Language :{{ucfirst($i->language)}}</p>
 </div>
-@if($i->quantity <= 54 && $i->quantity > 0)
+@if($i->quantity <= 34 && $i->quantity > 0)
 <div class="items-center border border-red-600 text-center w-11/12 md:w-4/12 lg:w-7/12 mx-auto">
 <p class="text-red-500 text-bold underline underline-offset-2 ">
     There are only {{$i->quantity}} books left.
@@ -43,7 +43,8 @@
 </form>
 @endauth
 @if($i->quantity > 0)
-                <button class="bg-white hover:bg-blue-700 text-blue-700 border border-blue-700 hover:text-white font-bold py-2 px-4 rounded-full w-11/12 md:w-7/12 lg:w-10/12">
+<php> $itemf = $i->ISBN </php>
+                <button class="bg-white hover:bg-blue-700 text-blue-700 border border-blue-700 hover:text-white font-bold py-2 px-4 rounded-full w-11/12 md:w-7/12 lg:w-10/12" onclick="addToCart($temf)">
                     Buy Now.
                 </button>
                 @else

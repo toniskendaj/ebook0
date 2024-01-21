@@ -36,6 +36,14 @@ return new class extends Migration
             $table->integer("quantity")->nullable(true)??NULL;
             $table->string("returnable");
         });
+        Schema::create('chart',function(Blueprint $table){
+            $table->id("id")->autoIncrement();
+            $table->string("title")->nullable();
+            $table->foreignId("ISBN");
+            $table->float("price");
+            $table->integer("year");
+            $table->integer("quantity");
+        });
     }
 
     /**
@@ -48,5 +56,6 @@ return new class extends Migration
         Schema::dropIfExists('item');
         Schema::dropIfExists('itemchars');
         Schema::dropIfExists('itemquantities');
+        Schema::dropIfExists('chart');
     }
 };

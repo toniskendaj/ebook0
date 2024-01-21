@@ -2,7 +2,7 @@
 <footer>
   <div class="flex flex-col pb-4">
             <div class="mx-auto my-6 text-center text-md text-black">
-            ©2023 <br>Projekt per lenden Arkitekture Aplikimi Enterprise
+            ©2024 <br>Projekt
             </div>
             <!-- Social Links Container -->
             <div class="flex flex-row justify-center space-x-10">
