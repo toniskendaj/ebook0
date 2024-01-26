@@ -20,7 +20,11 @@
 <input type="checkbox" id="my-modal-7" class="modal-toggle" />
 <div class="modal modal-bottom sm:modal-middle">
   <div class="modal-box">
-    <h3 class="font-bold text-lg">Projekt </h3>
+    <h3 class="font-bold text-lg">Projekt</h3>
+    
+<a class="btn btn-outline-dark" href="{{ route('shopping.cart') }}">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge bg-danger">{{ count((array) session('cart')) }}</span>
+    </a>
     <p class="py-4">Punoi : Elton Skëndaj || Ema Rama</p>
     <div class="modal-action">
       <label for="my-modal-7" class="btn">MBYLL</label>
@@ -37,5 +41,4 @@
     </div>
   </div>
 </div>
-
   

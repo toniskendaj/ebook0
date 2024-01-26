@@ -29,3 +29,8 @@ Route::post('register',[RegisterController::class,'store']);
 Route::post('logout',[SessionsController::class,'destroy'])->middleware('auth');
 Route::get('login',[SessionsController::class,'create'])->middleware('guest');
 Route::post('login',[SessionsController::class,'store']);
+
+Route::get('/shopping-cart', [ItemController::class, 'bookCart'])->name('shopping.cart');
+Route::get('/book/{id}', [ItemController::class, 'addBooktoCart'])->name('addbook.to.cart');
+Route::patch('/update-shopping-cart', [ItemController::class, 'updateCart'])->name('update.sopping.cart');
+Route::delete('/delete-cart-product', [ItemController::class, 'deleteProduct'])->name('delete.cart.product');

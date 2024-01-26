@@ -110,4 +110,52 @@ class ItemController extends Controller
         
     return view('welcome',compact('items'));
     }
+    public function addBooktoCart($id)
+    {
+        $book = item::findOrFail($id);
+        $cart = session()->get('cart', []);
+        if(isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            $cart[$id] = [
+                "name" => $book->title,
+                "quantity" => 1,
+                "price" => $book->price,
+                "image" => $book->image
+            ];
+        }
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success', 'Book has been added to cart!');
+    }
+     
+    public function bookCart()
+    {
+        return view('component.cart');
+    }
+
+    public function updateCart(Request $request)
+    {
+        if($request->id && $request->quantity){
+            $cart = session()->get('cart');
+            $cart[$request->id]["quantity"] = $request->quantity;
+            session()->put('cart', $cart);
+            session()->flash('success', 'Book added to cart.');
+        }
+    }
+   
+    public function deleteProduct(Request $request)
+{
+    $response = ['success' => false, 'message' => 'Book not found.'];
+    if ($request->id) {
+        $cart = session()->get('cart');
+
+        if (isset($cart[$request->id])) {
+            unset($cart[$request->id]);
+            session()->put('cart', $cart);
+            $response = ['success' => true, 'message' => 'Book successfully deleted.'];
+        }
+    }
+
+    return response()->json($response);
+}
 }
